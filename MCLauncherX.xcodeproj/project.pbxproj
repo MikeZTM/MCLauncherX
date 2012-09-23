@@ -13,6 +13,7 @@
 		9E92BA99160F0D53003CCEE3 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9E92BA97160F0D53003CCEE3 /* Credits.rtf */; };
 		9E92BA9C160F0D53003CCEE3 /* zaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92BA9B160F0D53003CCEE3 /* zaAppDelegate.m */; };
 		9E92BA9F160F0D53003CCEE3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E92BA9D160F0D53003CCEE3 /* MainMenu.xib */; };
+		9E92C0F9160F165A003CCEE3 /* mcicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E92C0F8160F1659003CCEE3 /* mcicon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,9 +27,9 @@
 		9E92BA94160F0D53003CCEE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9E92BA96160F0D53003CCEE3 /* MCLauncherX-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCLauncherX-Prefix.pch"; sourceTree = "<group>"; };
 		9E92BA98160F0D53003CCEE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		9E92BA9A160F0D53003CCEE3 /* zaAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zaAppDelegate.h; sourceTree = "<group>"; };
 		9E92BA9B160F0D53003CCEE3 /* zaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zaAppDelegate.m; sourceTree = "<group>"; };
 		9E92BA9E160F0D53003CCEE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		9E92C0F8160F1659003CCEE3 /* mcicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mcicon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +47,7 @@
 		9E92BA79160F0D53003CCEE3 = {
 			isa = PBXGroup;
 			children = (
+				9E92C0F8160F1659003CCEE3 /* mcicon.png */,
 				9E92BA8E160F0D53003CCEE3 /* MCLauncherX */,
 				9E92BA87160F0D53003CCEE3 /* Frameworks */,
 				9E92BA85160F0D53003CCEE3 /* Products */,
@@ -82,7 +84,6 @@
 		9E92BA8E160F0D53003CCEE3 /* MCLauncherX */ = {
 			isa = PBXGroup;
 			children = (
-				9E92BA9A160F0D53003CCEE3 /* zaAppDelegate.h */,
 				9E92BA9B160F0D53003CCEE3 /* zaAppDelegate.m */,
 				9E92BA9D160F0D53003CCEE3 /* MainMenu.xib */,
 				9E92BA8F160F0D53003CCEE3 /* Supporting Files */,
@@ -157,6 +158,7 @@
 				9E92BA93160F0D53003CCEE3 /* InfoPlist.strings in Resources */,
 				9E92BA99160F0D53003CCEE3 /* Credits.rtf in Resources */,
 				9E92BA9F160F0D53003CCEE3 /* MainMenu.xib in Resources */,
+				9E92C0F9160F165A003CCEE3 /* mcicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +264,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCLauncherX/MCLauncherX-Prefix.pch";
 				INFOPLIST_FILE = "MCLauncherX/MCLauncherX-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/MCLauncherX/minecraft/bin/natives\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -274,6 +280,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCLauncherX/MCLauncherX-Prefix.pch";
 				INFOPLIST_FILE = "MCLauncherX/MCLauncherX-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/MCLauncherX/minecraft/bin/natives\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -298,6 +308,7 @@
 				9E92BAA4160F0D53003CCEE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

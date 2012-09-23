@@ -11,5 +11,7 @@
 @interface zaAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+- (IBAction)launchGame:(id)sender;
+@property (weak) IBOutlet NSTextField *playerName;
 
 @end
