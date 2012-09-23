@@ -13,5 +13,6 @@
 @property (assign) IBOutlet NSWindow *window;
 - (IBAction)launchGame:(id)sender;
 @property (weak) IBOutlet NSTextField *playerName;
+@property (strong, nonatomic) NSString *name;
 
 @end

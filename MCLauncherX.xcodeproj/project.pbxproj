@@ -17,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E1B082E160F36E500AD16AF /* MCLauncherX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MCLauncherX.entitlements; sourceTree = "<group>"; };
 		9E92BA84160F0D53003CCEE3 /* MCLauncherX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCLauncherX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E92BA88160F0D53003CCEE3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9E92BA8B160F0D53003CCEE3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -84,6 +85,7 @@
 		9E92BA8E160F0D53003CCEE3 /* MCLauncherX */ = {
 			isa = PBXGroup;
 			children = (
+				9E1B082E160F36E500AD16AF /* MCLauncherX.entitlements */,
 				9E92C0FA160F16E3003CCEE3 /* favicon.icns */,
 				9E92C0FC160F1729003CCEE3 /* zaAppDelegate.h */,
 				9E92BA9B160F0D53003CCEE3 /* zaAppDelegate.m */,
