@@ -14,30 +14,47 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    //check player name
     NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"stats.plist"];
     NSMutableDictionary* plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
     _name = [plistDict objectForKey:@"PlayerName"];
+    //set default player name
     if(!_name){
         _name=@"Player";
     }
     _playerName.stringValue=_name;
+
+    //version check
+//    NSString *launcher_ver = [plistDict objectForKey:@"LauncherVer"];
+//    if(!launcher_ver){
+//        launcher_ver=@"1";
+//    }
+//    NSString *version = [plistDict objectForKey:@"Version"];
+//    if(!version){
+//        version=@"1";
+//    }
 }
 
 - (IBAction)launchGame:(id)sender {
+    //get player name
     NSString *name=_playerName.stringValue;
+    //start game thread
     [NSThread detachNewThreadSelector:@selector(startGame:) toTarget:[self class] withObject:name];
-//    [[self window] close];
+    //save player name to plist
     NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"stats.plist"];
     NSMutableDictionary* plistDict = [[NSMutableDictionary alloc] init];
     [plistDict setObject:_playerName.stringValue forKey:@"PlayerName"];
     [plistDict writeToFile:filePath atomically: YES];
+    //waitting for game thread
     sleep(1);
+    //exit luancher thread
     return exit(0);
 }
 
 +(NSString *)getCP{
+    //prepare class path
     NSFileManager *filemgr;
     NSString *currentpath;
     filemgr = [[NSFileManager alloc] init];
@@ -57,6 +74,7 @@
 }
 
 +(NSString *)getDcp{
+    //prepare native class path
     NSFileManager *filemgr;
     NSString *currentpath;
     filemgr = [[NSFileManager alloc] init];
@@ -68,6 +86,7 @@
 }
 
 +(NSString *)getPara:(NSString *)name{
+    //prepare java para
     NSString *cmd=@"-Xms1024m -Xmx2048m ";
     cmd=[cmd stringByAppendingString:[self getCP]];
     cmd=[cmd stringByAppendingString:@" net.minecraft.client.Minecraft \""];
@@ -77,6 +96,7 @@
 }
 
 +(void)startGame:(NSString *)name{
+    //game thread
     NSString *temp=[NSString alloc];
     temp=@"\"";
     temp=[temp stringByAppendingString:name];
