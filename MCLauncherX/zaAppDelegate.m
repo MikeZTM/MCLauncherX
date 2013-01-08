@@ -67,11 +67,10 @@
 
 - (IBAction)launchGame:(id)sender {
     //get player name
-    NSString *name=_playerName.stringValue;
+    NSArray *vals=[[NSArray alloc] initWithObjects:_playerName.stringValue,_memAmount,_MCpath,nil];
     //start game thread
-    [NSThread detachNewThreadSelector:@selector(startGame:) toTarget:[self class] withObject:name];
+    [NSThread detachNewThreadSelector:@selector(startGame:) toTarget:[self class] withObject:vals];
     //save player name to plist
-    NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     [plistDict setObject:_playerName.stringValue forKey:@"PlayerName"];
     [plistDict writeToFile:filePath atomically: YES];
     //waitting for game thread
@@ -80,13 +79,13 @@
     return exit(0);
 }
 
--(NSString *)getCP{
++(NSString *)getCP:(NSString *)path{
     //prepare class path
     NSFileManager *filemgr;
     filemgr = [[NSFileManager alloc] init];
     //    currentpath = [filemgr currentDirectoryPath];
     NSString *currentpath;
-    currentpath = [_MCpath substringToIndex:[_MCpath length]-13];
+    currentpath = [path substringToIndex:[path length]-13];
     NSString *cp=@"";
     cp=[cp stringByAppendingString:currentpath];
     cp=[cp stringByAppendingString:@"minecraft.jar:"];
@@ -99,37 +98,37 @@
     return cp;
 }
 
--(NSString *)getDcp{
++(NSString *)getDcp:(NSString *)path{
     //prepare native class path
     NSFileManager *filemgr;
     filemgr = [[NSFileManager alloc] init];
     NSString *currentpath;
-    currentpath = [_MCpath substringToIndex:[_MCpath length]-13];
+    currentpath = [path substringToIndex:[path length]-13];
     NSString *dcp=@"-Djava.library.path=";
     dcp=[dcp stringByAppendingString:currentpath];
-    dcp=[dcp stringByAppendingString:@"bin/natives"];
+    dcp=[dcp stringByAppendingString:@"natives"];
     return dcp;
 }
 
--(void)startGame:(NSString *)name{
++(void)startGame:(NSArray*)vals{
     //game thread
     NSString *temp=[NSString alloc];
     temp=@"\"";
-    temp=[temp stringByAppendingString:name];
+    temp=[temp stringByAppendingString:[vals objectAtIndex:0]];
     temp=[temp stringByAppendingString:@"\""];
 
     NSTask *myTask = [[NSTask alloc] init];
-    NSString *cp=[self getCP];
-    NSString *dcp=[self getDcp];
+    NSString *cp=[self getCP:[vals objectAtIndex:2]];
+    NSString *dcp=[self getDcp:[vals objectAtIndex:2]];
     NSString *xms=@"-Xms";
-    xms=[xms stringByAppendingString:_memAmount];
+    xms=[xms stringByAppendingString:[vals objectAtIndex:1]];
     xms=[xms stringByAppendingString:@"m"];
     NSString *xmx=@"-Xmx";
-    xmx=[xmx stringByAppendingString:_memAmount];
+    xmx=[xmx stringByAppendingString:[vals objectAtIndex:1]];
     xmx=[xmx stringByAppendingString:@"m"];
     NSArray *args = [[NSArray alloc] initWithObjects:xms, xmx, @"-cp", cp, dcp, @"net.minecraft.client.Minecraft", temp, nil];
 
-    [myTask setLaunchPath:@"/usr/bin/java"];
+    [myTask setLaunchPath:@"/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/bin/java"];
     [myTask setArguments:args];
     [myTask launch];
 
@@ -148,14 +147,16 @@
 
 -(void)setMC:(NSString*)path{
     _MCpath=path;
-    [plistDict setObject:_playerName.stringValue forKey:@"MCPath"];
+    [plistDict setObject:_MCpath forKey:@"MCPath"];
     [plistDict writeToFile:filePath atomically: YES];
+    NSLog(_MCpath);
 }
 
 -(void)setMemory:(NSString*)amount{
     _memAmount=amount;
-    [plistDict setObject:_playerName.stringValue forKey:@"MemAmount"];
+    [plistDict setObject:_memAmount forKey:@"MemAmount"];
     [plistDict writeToFile:filePath atomically: YES];
+    NSLog(_memAmount);
 }
 
 -(void)setPswd:(NSString*)pswd{
@@ -164,13 +165,16 @@
     [plistDict writeToFile:filePath atomically: YES];
 }
 
-- (IBAction)memChange:(id)sender {
-    [self setMemAmount:[[self MemTextField] stringValue]];
-    NSLog(_memAmount);
+- (void)memChange:(id)sender {
+    [self setMemory:[[self MemTextField] stringValue]];
 }
 
 - (IBAction)mcpathChange:(id)sender {
     [self setMC:[[self mcpathTextField] stringValue]];
-    NSLog(_MCpath);
+}
+
+- (IBAction)memSliderChanged:(id)sender {
+    [_MemTextField setStringValue:[(NSSlider*)sender stringValue]];
+    [self memChange:nil];
 }
 @end

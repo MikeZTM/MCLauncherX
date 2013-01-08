@@ -28,4 +28,6 @@
 @property (weak) IBOutlet NSTextField *MemTextField;
 @property (weak) IBOutlet NSSecureTextField *pswdTextField;
 @property (weak) IBOutlet NSSlider *memSlider;
+- (IBAction)memSliderChanged:(id)sender;
+
 @end
