@@ -9,34 +9,60 @@
 #import "zaAppDelegate.h"
 #import "zaPreferencesWindowController.h"
 
-@implementation zaAppDelegate
+@implementation zaAppDelegate{
+    NSString *filePath;
+    NSMutableDictionary *plistDict;
+}
 @synthesize playerName=_playerName;
 @synthesize name=_name;
 @synthesize window=_window;
 @synthesize preferences=_preferences;
+@synthesize MCpath=_MCpath;
+@synthesize memAmount=_memAmount;
+@synthesize accountPswd=_accountPswd;
+@synthesize memSlider=_memSlider;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     //check player name
     NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"stats.plist"];
-    NSMutableDictionary* plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
+    filePath = [documentsDirectory stringByAppendingPathComponent:@"stats.plist"];
+    plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
+    if(!plistDict){
+        plistDict=[[NSMutableDictionary alloc] init];
+    }
     _name = [plistDict objectForKey:@"PlayerName"];
+    _MCpath = [plistDict objectForKey:@"MCPath"];
+    _memAmount = [plistDict objectForKey:@"MemAmount"];
+    _accountPswd = [plistDict objectForKey:@"Pswd"];
     //set default player name
     if(!_name){
         _name=@"";
     }
+    if(!_MCpath){
+        _MCpath=@"";
+    }
+    if(!_memAmount){
+        _memAmount=@"1024";
+        NSLog(@"%d",[_memAmount intValue]);
+    }
+    if(!_accountPswd){
+        _accountPswd=@"";
+    }
     _playerName.stringValue=_name;
-
+    [_mcpathTextField setStringValue:_MCpath];
+    [_MemTextField setStringValue:_memAmount];
+    [_pswdTextField setStringValue:_accountPswd];
+    [_memSlider setIntValue:[_memAmount intValue]];
     //version check
-//    NSString *launcher_ver = [plistDict objectForKey:@"LauncherVer"];
-//    if(!launcher_ver){
-//        launcher_ver=@"1";
-//    }
-//    NSString *version = [plistDict objectForKey:@"Version"];
-//    if(!version){
-//        version=@"1";
-//    }
+    //    NSString *launcher_ver = [plistDict objectForKey:@"LauncherVer"];
+    //    if(!launcher_ver){
+    //        launcher_ver=@"1";
+    //    }
+    //    NSString *version = [plistDict objectForKey:@"Version"];
+    //    if(!version){
+    //        version=@"1";
+    //    }
 }
 
 - (IBAction)launchGame:(id)sender {
@@ -46,8 +72,6 @@
     [NSThread detachNewThreadSelector:@selector(startGame:) toTarget:[self class] withObject:name];
     //save player name to plist
     NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"stats.plist"];
-    NSMutableDictionary* plistDict = [[NSMutableDictionary alloc] init];
     [plistDict setObject:_playerName.stringValue forKey:@"PlayerName"];
     [plistDict writeToFile:filePath atomically: YES];
     //waitting for game thread
@@ -56,49 +80,38 @@
     return exit(0);
 }
 
-+(NSString *)getCP{
+-(NSString *)getCP{
     //prepare class path
     NSFileManager *filemgr;
-    NSString *currentpath;
     filemgr = [[NSFileManager alloc] init];
-//    currentpath = [filemgr currentDirectoryPath];
-
-    currentpath = @"/Applications";
+    //    currentpath = [filemgr currentDirectoryPath];
+    NSString *currentpath;
+    currentpath = [_MCpath substringToIndex:[_MCpath length]-13];
     NSString *cp=@"";
     cp=[cp stringByAppendingString:currentpath];
-    cp=[cp stringByAppendingString:@"/MCLauncherX.app/Contents/minecraft/bin/minecraft.jar:"];
+    cp=[cp stringByAppendingString:@"minecraft.jar:"];
     cp=[cp stringByAppendingString:currentpath];
-    cp=[cp stringByAppendingString:@"/MCLauncherX.app/Contents/minecraft/bin/lwjgl_util.jar:"];
+    cp=[cp stringByAppendingString:@"lwjgl_util.jar:"];
     cp=[cp stringByAppendingString:currentpath];
-    cp=[cp stringByAppendingString:@"/MCLauncherX.app/Contents/minecraft/bin/lwjgl.jar:"];
+    cp=[cp stringByAppendingString:@"lwjgl.jar:"];
     cp=[cp stringByAppendingString:currentpath];
-    cp=[cp stringByAppendingString:@"/MCLauncherX.app/Contents/minecraft/bin/jinput.jar"];
+    cp=[cp stringByAppendingString:@"jinput.jar"];
     return cp;
 }
 
-+(NSString *)getDcp{
+-(NSString *)getDcp{
     //prepare native class path
     NSFileManager *filemgr;
-    NSString *currentpath;
     filemgr = [[NSFileManager alloc] init];
-    currentpath = @"/Applications";
+    NSString *currentpath;
+    currentpath = [_MCpath substringToIndex:[_MCpath length]-13];
     NSString *dcp=@"-Djava.library.path=";
     dcp=[dcp stringByAppendingString:currentpath];
-    dcp=[dcp stringByAppendingString:@"/MCLauncherX.app/Contents/minecraft/bin/natives"];
+    dcp=[dcp stringByAppendingString:@"bin/natives"];
     return dcp;
 }
 
-+(NSString *)getPara:(NSString *)name{
-    //prepare java para
-    NSString *cmd=@"-Xms1024m -Xmx2048m ";
-    cmd=[cmd stringByAppendingString:[self getCP]];
-    cmd=[cmd stringByAppendingString:@" net.minecraft.client.Minecraft \""];
-    cmd=[cmd stringByAppendingString:name];
-    cmd=[cmd stringByAppendingString:@"\""];
-    return cmd;
-}
-
-+(void)startGame:(NSString *)name{
+-(void)startGame:(NSString *)name{
     //game thread
     NSString *temp=[NSString alloc];
     temp=@"\"";
@@ -108,12 +121,18 @@
     NSTask *myTask = [[NSTask alloc] init];
     NSString *cp=[self getCP];
     NSString *dcp=[self getDcp];
-    NSArray *args = [[NSArray alloc] initWithObjects:@"-Xms1024m", @"-Xmx2048m", @"-cp", cp, dcp, @"net.minecraft.client.Minecraft", temp, nil];
+    NSString *xms=@"-Xms";
+    xms=[xms stringByAppendingString:_memAmount];
+    xms=[xms stringByAppendingString:@"m"];
+    NSString *xmx=@"-Xmx";
+    xmx=[xmx stringByAppendingString:_memAmount];
+    xmx=[xmx stringByAppendingString:@"m"];
+    NSArray *args = [[NSArray alloc] initWithObjects:xms, xmx, @"-cp", cp, dcp, @"net.minecraft.client.Minecraft", temp, nil];
 
     [myTask setLaunchPath:@"/usr/bin/java"];
     [myTask setArguments:args];
     [myTask launch];
-    
+
     [myTask waitUntilExit];
     return exit(0);
 }
@@ -127,4 +146,31 @@
     [_preferences makeKeyAndOrderFront:self];
 }
 
+-(void)setMC:(NSString*)path{
+    _MCpath=path;
+    [plistDict setObject:_playerName.stringValue forKey:@"MCPath"];
+    [plistDict writeToFile:filePath atomically: YES];
+}
+
+-(void)setMemory:(NSString*)amount{
+    _memAmount=amount;
+    [plistDict setObject:_playerName.stringValue forKey:@"MemAmount"];
+    [plistDict writeToFile:filePath atomically: YES];
+}
+
+-(void)setPswd:(NSString*)pswd{
+    _accountPswd=pswd;
+    [plistDict setObject:_playerName.stringValue forKey:@"Pswd"];
+    [plistDict writeToFile:filePath atomically: YES];
+}
+
+- (IBAction)memChange:(id)sender {
+    [self setMemAmount:[[self MemTextField] stringValue]];
+    NSLog(_memAmount);
+}
+
+- (IBAction)mcpathChange:(id)sender {
+    [self setMC:[[self mcpathTextField] stringValue]];
+    NSLog(_MCpath);
+}
 @end

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9E50616D169BB93C00271876 /* zaPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E50616C169BB93C00271876 /* zaPreferencesWindowController.m */; };
 		9E506173169BCD0700271876 /* zaDragUpdateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E506172169BCD0700271876 /* zaDragUpdateView.m */; };
+		9E506176169BECF100271876 /* zaMCPathDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E506175169BECF100271876 /* zaMCPathDelegate.m */; };
+		9E506179169BEF2F00271876 /* zaMemChangeDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E506178169BEF2F00271876 /* zaMemChangeDelegate.m */; };
 		9E92BA89160F0D53003CCEE3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E92BA88160F0D53003CCEE3 /* Cocoa.framework */; };
 		9E92BA93160F0D53003CCEE3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E92BA91160F0D53003CCEE3 /* InfoPlist.strings */; };
 		9E92BA95160F0D53003CCEE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92BA94160F0D53003CCEE3 /* main.m */; };
@@ -24,6 +26,10 @@
 		9E50616C169BB93C00271876 /* zaPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zaPreferencesWindowController.m; sourceTree = "<group>"; };
 		9E506171169BCD0700271876 /* zaDragUpdateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zaDragUpdateView.h; path = ../zaDragUpdateView.h; sourceTree = "<group>"; };
 		9E506172169BCD0700271876 /* zaDragUpdateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = zaDragUpdateView.m; path = ../zaDragUpdateView.m; sourceTree = "<group>"; };
+		9E506174169BECF100271876 /* zaMCPathDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zaMCPathDelegate.h; sourceTree = "<group>"; };
+		9E506175169BECF100271876 /* zaMCPathDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zaMCPathDelegate.m; sourceTree = "<group>"; };
+		9E506177169BEF2F00271876 /* zaMemChangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zaMemChangeDelegate.h; sourceTree = "<group>"; };
+		9E506178169BEF2F00271876 /* zaMemChangeDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zaMemChangeDelegate.m; sourceTree = "<group>"; };
 		9E92BA84160F0D53003CCEE3 /* MCLauncherX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCLauncherX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E92BA88160F0D53003CCEE3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9E92BA8B160F0D53003CCEE3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -99,6 +105,10 @@
 				9E92BA9B160F0D53003CCEE3 /* zaAppDelegate.m */,
 				9E50616B169BB93C00271876 /* zaPreferencesWindowController.h */,
 				9E50616C169BB93C00271876 /* zaPreferencesWindowController.m */,
+				9E506174169BECF100271876 /* zaMCPathDelegate.h */,
+				9E506175169BECF100271876 /* zaMCPathDelegate.m */,
+				9E506177169BEF2F00271876 /* zaMemChangeDelegate.h */,
+				9E506178169BEF2F00271876 /* zaMemChangeDelegate.m */,
 				9E92BA9D160F0D53003CCEE3 /* MainMenu.xib */,
 				9E92BA8F160F0D53003CCEE3 /* Supporting Files */,
 			);
@@ -187,6 +197,8 @@
 				9E92BA9C160F0D53003CCEE3 /* zaAppDelegate.m in Sources */,
 				9E50616D169BB93C00271876 /* zaPreferencesWindowController.m in Sources */,
 				9E506173169BCD0700271876 /* zaDragUpdateView.m in Sources */,
+				9E506176169BECF100271876 /* zaMCPathDelegate.m in Sources */,
+				9E506179169BEF2F00271876 /* zaMemChangeDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
