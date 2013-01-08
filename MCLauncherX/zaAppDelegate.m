@@ -7,10 +7,13 @@
 //
 
 #import "zaAppDelegate.h"
+#import "zaPreferencesWindowController.h"
 
 @implementation zaAppDelegate
 @synthesize playerName=_playerName;
 @synthesize name=_name;
+@synthesize window=_window;
+@synthesize preferences=_preferences;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -21,7 +24,7 @@
     _name = [plistDict objectForKey:@"PlayerName"];
     //set default player name
     if(!_name){
-        _name=@"Player";
+        _name=@"";
     }
     _playerName.stringValue=_name;
 
@@ -117,6 +120,11 @@
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
     return YES;
+}
+
+- (IBAction)openPreferences:(id)sender {
+    [_window orderOut:self];
+    [_preferences makeKeyAndOrderFront:self];
 }
 
 @end

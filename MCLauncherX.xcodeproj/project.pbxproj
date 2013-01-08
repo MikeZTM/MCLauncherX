@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E50616D169BB93C00271876 /* zaPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E50616C169BB93C00271876 /* zaPreferencesWindowController.m */; };
 		9E92BA89160F0D53003CCEE3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E92BA88160F0D53003CCEE3 /* Cocoa.framework */; };
 		9E92BA93160F0D53003CCEE3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E92BA91160F0D53003CCEE3 /* InfoPlist.strings */; };
 		9E92BA95160F0D53003CCEE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92BA94160F0D53003CCEE3 /* main.m */; };
@@ -18,6 +19,8 @@
 
 /* Begin PBXFileReference section */
 		9E1B082E160F36E500AD16AF /* MCLauncherX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MCLauncherX.entitlements; sourceTree = "<group>"; };
+		9E50616B169BB93C00271876 /* zaPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zaPreferencesWindowController.h; sourceTree = "<group>"; };
+		9E50616C169BB93C00271876 /* zaPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zaPreferencesWindowController.m; sourceTree = "<group>"; };
 		9E92BA84160F0D53003CCEE3 /* MCLauncherX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCLauncherX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E92BA88160F0D53003CCEE3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9E92BA8B160F0D53003CCEE3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -89,6 +92,8 @@
 				9E92C0FA160F16E3003CCEE3 /* favicon.icns */,
 				9E92C0FC160F1729003CCEE3 /* zaAppDelegate.h */,
 				9E92BA9B160F0D53003CCEE3 /* zaAppDelegate.m */,
+				9E50616B169BB93C00271876 /* zaPreferencesWindowController.h */,
+				9E50616C169BB93C00271876 /* zaPreferencesWindowController.m */,
 				9E92BA9D160F0D53003CCEE3 /* MainMenu.xib */,
 				9E92BA8F160F0D53003CCEE3 /* Supporting Files */,
 			);
@@ -175,6 +180,7 @@
 			files = (
 				9E92BA95160F0D53003CCEE3 /* main.m in Sources */,
 				9E92BA9C160F0D53003CCEE3 /* zaAppDelegate.m in Sources */,
+				9E50616D169BB93C00271876 /* zaPreferencesWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
