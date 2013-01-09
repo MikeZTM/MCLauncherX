@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9E50616D169BB93C00271876 /* zaPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E50616C169BB93C00271876 /* zaPreferencesWindowController.m */; };
-		9E506173169BCD0700271876 /* zaDragUpdateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E506172169BCD0700271876 /* zaDragUpdateView.m */; };
 		9E506176169BECF100271876 /* zaMCPathDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E506175169BECF100271876 /* zaMCPathDelegate.m */; };
 		9E92BA89160F0D53003CCEE3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E92BA88160F0D53003CCEE3 /* Cocoa.framework */; };
 		9E92BA93160F0D53003CCEE3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E92BA91160F0D53003CCEE3 /* InfoPlist.strings */; };
@@ -21,10 +20,10 @@
 
 /* Begin PBXFileReference section */
 		9E1B082E160F36E500AD16AF /* MCLauncherX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MCLauncherX.entitlements; sourceTree = "<group>"; };
+		9E2911B8169D5CE10017EDA7 /* zaDragUpdateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zaDragUpdateView.h; sourceTree = "<group>"; };
+		9E2911B9169D5CE10017EDA7 /* zaDragUpdateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zaDragUpdateView.m; sourceTree = "<group>"; };
 		9E50616B169BB93C00271876 /* zaPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zaPreferencesWindowController.h; sourceTree = "<group>"; };
 		9E50616C169BB93C00271876 /* zaPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zaPreferencesWindowController.m; sourceTree = "<group>"; };
-		9E506171169BCD0700271876 /* zaDragUpdateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zaDragUpdateView.h; path = ../zaDragUpdateView.h; sourceTree = "<group>"; };
-		9E506172169BCD0700271876 /* zaDragUpdateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = zaDragUpdateView.m; path = ../zaDragUpdateView.m; sourceTree = "<group>"; };
 		9E506174169BECF100271876 /* zaMCPathDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zaMCPathDelegate.h; sourceTree = "<group>"; };
 		9E506175169BECF100271876 /* zaMCPathDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zaMCPathDelegate.m; sourceTree = "<group>"; };
 		9E92BA84160F0D53003CCEE3 /* MCLauncherX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCLauncherX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,8 +93,8 @@
 		9E92BA8E160F0D53003CCEE3 /* MCLauncherX */ = {
 			isa = PBXGroup;
 			children = (
-				9E506171169BCD0700271876 /* zaDragUpdateView.h */,
-				9E506172169BCD0700271876 /* zaDragUpdateView.m */,
+				9E2911B8169D5CE10017EDA7 /* zaDragUpdateView.h */,
+				9E2911B9169D5CE10017EDA7 /* zaDragUpdateView.m */,
 				9E1B082E160F36E500AD16AF /* MCLauncherX.entitlements */,
 				9E92C0FA160F16E3003CCEE3 /* favicon.icns */,
 				9E92C0FC160F1729003CCEE3 /* zaAppDelegate.h */,
@@ -191,7 +190,6 @@
 				9E92BA95160F0D53003CCEE3 /* main.m in Sources */,
 				9E92BA9C160F0D53003CCEE3 /* zaAppDelegate.m in Sources */,
 				9E50616D169BB93C00271876 /* zaPreferencesWindowController.m in Sources */,
-				9E506173169BCD0700271876 /* zaDragUpdateView.m in Sources */,
 				9E506176169BECF100271876 /* zaMCPathDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,6 +288,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/MCLauncherX/minecraft/bin/natives\"",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -306,6 +305,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/MCLauncherX/minecraft/bin/natives\"",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

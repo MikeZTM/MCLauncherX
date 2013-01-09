@@ -74,9 +74,9 @@
     [plistDict setObject:_playerName.stringValue forKey:@"PlayerName"];
     [plistDict writeToFile:filePath atomically: YES];
     //waitting for game thread
-    sleep(1);
+    //    sleep(1);
     //exit luancher thread
-    return exit(0);
+    //    return exit(0);
 }
 
 +(NSString *)getCP:(NSString *)path{
@@ -130,10 +130,24 @@
 
     [myTask setLaunchPath:@"/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/bin/java"];
     [myTask setArguments:args];
-    [myTask launch];
-
-    [myTask waitUntilExit];
-    return exit(0);
+    @try {
+        [myTask launch];
+        sleep(1);   //wait jvm exit on error.
+        if ([myTask terminationStatus]==1) {
+            @throw [[NSException alloc] initWithName:@"Arguments error" reason:@"args err" userInfo:@""];
+        }
+    }
+    @catch (NSException *exception) {
+        if ([[exception description] hasSuffix:@"running"]) {
+            return exit(0); //minecraft launched.
+        }
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"OK"];
+        [alert setMessageText:@"Ops! Could not launch your minecraft!"];
+        [alert setInformativeText:@"Check your preferences."];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert runModal];
+    }
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
