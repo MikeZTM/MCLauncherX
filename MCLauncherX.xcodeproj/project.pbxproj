@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9E50616D169BB93C00271876 /* zaPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E50616C169BB93C00271876 /* zaPreferencesWindowController.m */; };
 		9E506176169BECF100271876 /* zaMCPathDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E506175169BECF100271876 /* zaMCPathDelegate.m */; };
+		9E657B82169D5E0100072DFA /* zaDragUpdateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2911B9169D5CE10017EDA7 /* zaDragUpdateView.m */; };
 		9E92BA89160F0D53003CCEE3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E92BA88160F0D53003CCEE3 /* Cocoa.framework */; };
 		9E92BA93160F0D53003CCEE3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E92BA91160F0D53003CCEE3 /* InfoPlist.strings */; };
 		9E92BA95160F0D53003CCEE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92BA94160F0D53003CCEE3 /* main.m */; };
@@ -191,6 +192,7 @@
 				9E92BA9C160F0D53003CCEE3 /* zaAppDelegate.m in Sources */,
 				9E50616D169BB93C00271876 /* zaPreferencesWindowController.m in Sources */,
 				9E506176169BECF100271876 /* zaMCPathDelegate.m in Sources */,
+				9E657B82169D5E0100072DFA /* zaDragUpdateView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -112,25 +112,26 @@
 
 +(void)startGame:(NSArray*)vals{
     //game thread
-    NSString *temp=[NSString alloc];
-    temp=@"\"";
-    temp=[temp stringByAppendingString:[vals objectAtIndex:0]];
-    temp=[temp stringByAppendingString:@"\""];
-
-    NSTask *myTask = [[NSTask alloc] init];
-    NSString *cp=[self getCP:[vals objectAtIndex:2]];
-    NSString *dcp=[self getDcp:[vals objectAtIndex:2]];
-    NSString *xms=@"-Xms";
-    xms=[xms stringByAppendingString:[vals objectAtIndex:1]];
-    xms=[xms stringByAppendingString:@"m"];
-    NSString *xmx=@"-Xmx";
-    xmx=[xmx stringByAppendingString:[vals objectAtIndex:1]];
-    xmx=[xmx stringByAppendingString:@"m"];
-    NSArray *args = [[NSArray alloc] initWithObjects:xms, xmx, @"-cp", cp, dcp, @"net.minecraft.client.Minecraft", temp, nil];
-
-    [myTask setLaunchPath:@"/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/bin/java"];
-    [myTask setArguments:args];
     @try {
+        NSString *temp=[NSString alloc];
+        temp=@"\"";
+        temp=[temp stringByAppendingString:[vals objectAtIndex:0]];
+        temp=[temp stringByAppendingString:@"\""];
+
+        NSTask *myTask = [[NSTask alloc] init];
+        
+        NSString *cp=[self getCP:[vals objectAtIndex:2]];
+        NSString *dcp=[self getDcp:[vals objectAtIndex:2]];
+        NSString *xms=@"-Xms";
+        xms=[xms stringByAppendingString:[vals objectAtIndex:1]];
+        xms=[xms stringByAppendingString:@"m"];
+        NSString *xmx=@"-Xmx";
+        xmx=[xmx stringByAppendingString:[vals objectAtIndex:1]];
+        xmx=[xmx stringByAppendingString:@"m"];
+        NSArray *args = [[NSArray alloc] initWithObjects:xms, xmx, @"-cp", cp, dcp, @"net.minecraft.client.Minecraft", temp, nil];
+
+        [myTask setLaunchPath:@"/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/bin/java"];
+        [myTask setArguments:args];
         [myTask launch];
         sleep(1);   //wait jvm exit on error.
         if ([myTask terminationStatus]==1) {
