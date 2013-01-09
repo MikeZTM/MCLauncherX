@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[zaAppDelegate openPreferences:]:zaAppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "((zaPreferencesWindowController*)[_preferences windowController]).startWindow">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[zaAppDelegate setMC:]:zaAppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[zaPreferencesWindowController windowClosing:]:zaPreferencesWindowController.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
