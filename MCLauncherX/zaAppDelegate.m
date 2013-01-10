@@ -28,8 +28,10 @@
     NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     filePath = [documentsDirectory stringByAppendingPathComponent:@"stats.plist"];
     plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
+    bool firstRun = false;
     if(!plistDict){
         plistDict=[[NSMutableDictionary alloc] init];
+        firstRun=true;
     }
     _name = [plistDict objectForKey:@"PlayerName"];
     _MCpath = [plistDict objectForKey:@"MCPath"];
@@ -54,6 +56,10 @@
     [_MemTextField setStringValue:_memAmount];
     [_pswdTextField setStringValue:_accountPswd];
     [_memSlider setIntValue:[_memAmount intValue]];
+
+    if(firstRun){ //Open preference at first run.
+        [self openPreferences:self];
+    }
     //version check
     //    NSString *launcher_ver = [plistDict objectForKey:@"LauncherVer"];
     //    if(!launcher_ver){
@@ -67,7 +73,7 @@
 
 - (IBAction)launchGame:(id)sender {
     //get player name
-    NSArray *vals=[[NSArray alloc] initWithObjects:_playerName.stringValue,_memAmount,_MCpath,nil];
+    NSArray *vals=[[NSArray alloc] initWithObjects:_playerName.stringValue,_memAmount,_MCpath,_accountPswd,nil];
     //start game thread
     [NSThread detachNewThreadSelector:@selector(startGame:) toTarget:[self class] withObject:vals];
     //save player name to plist
@@ -113,13 +119,19 @@
 +(void)startGame:(NSArray*)vals{
     //game thread
     @try {
-        NSString *temp=[NSString alloc];
+        NSString *temp=[NSString alloc];    //Player name
         temp=@"\"";
         temp=[temp stringByAppendingString:[vals objectAtIndex:0]];
         temp=[temp stringByAppendingString:@"\""];
 
+
+        NSString *temp2=[NSString alloc];   //Pswd
+        temp2=@"\"";
+        temp2=[temp2 stringByAppendingString:[vals objectAtIndex:3]];
+        temp2=[temp2 stringByAppendingString:@"\""];
+
         NSTask *myTask = [[NSTask alloc] init];
-        
+
         NSString *cp=[self getCP:[vals objectAtIndex:2]];
         NSString *dcp=[self getDcp:[vals objectAtIndex:2]];
         NSString *xms=@"-Xms";
@@ -128,7 +140,12 @@
         NSString *xmx=@"-Xmx";
         xmx=[xmx stringByAppendingString:[vals objectAtIndex:1]];
         xmx=[xmx stringByAppendingString:@"m"];
-        NSArray *args = [[NSArray alloc] initWithObjects:xms, xmx, @"-cp", cp, dcp, @"net.minecraft.client.Minecraft", temp, nil];
+        NSArray *args;
+        if([vals objectAtIndex:3]){
+            args = [[NSArray alloc] initWithObjects:xms, xmx, @"-cp", cp, dcp, @"net.minecraft.client.Minecraft", temp, nil];
+        }else{
+            args = [[NSArray alloc] initWithObjects:xms, xmx, @"-cp", cp, dcp, @"net.minecraft.client.Minecraft", temp, temp2, nil];
+        }
 
         [myTask setLaunchPath:@"/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/bin/java"];
         [myTask setArguments:args];
