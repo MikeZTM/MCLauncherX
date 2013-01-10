@@ -29,5 +29,6 @@
 @property (weak) IBOutlet NSSecureTextField *pswdTextField;
 @property (weak) IBOutlet NSSlider *memSlider;
 - (IBAction)memSliderChanged:(id)sender;
+- (IBAction)pswdChanged:(id)sender;
 
 @end

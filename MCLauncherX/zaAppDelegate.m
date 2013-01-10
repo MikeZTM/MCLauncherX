@@ -25,7 +25,16 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     //check player name
-    NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+    NSString *applicationSupportDirectory = [paths objectAtIndex:0];
+    NSLog(@"applicationSupportDirectory: '%@'", applicationSupportDirectory);
+
+    NSString *documentsDirectory = [applicationSupportDirectory stringByAppendingString:@"/MCLauncherX"];
+    NSFileManager *fileManager= [NSFileManager defaultManager];
+    if(![fileManager fileExistsAtPath:documentsDirectory isDirectory:nil])
+        if(![fileManager createDirectoryAtPath:documentsDirectory withIntermediateDirectories:YES attributes:nil error:NULL]) {
+            NSLog(@"Error: Create folder failed %@", documentsDirectory);
+        }
     filePath = [documentsDirectory stringByAppendingPathComponent:@"stats.plist"];
     plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
     bool firstRun = false;
@@ -193,7 +202,7 @@
 
 -(void)setPswd:(NSString*)pswd{
     _accountPswd=pswd;
-    [plistDict setObject:_playerName.stringValue forKey:@"Pswd"];
+    [plistDict setObject:_accountPswd forKey:@"Pswd"];
     [plistDict writeToFile:filePath atomically: YES];
 }
 
@@ -208,5 +217,9 @@
 - (IBAction)memSliderChanged:(id)sender {
     [_MemTextField setStringValue:[(NSSlider*)sender stringValue]];
     [self memChange:nil];
+}
+
+- (IBAction)pswdChanged:(id)sender {
+    [self setPswd:[[self pswdTextField] stringValue]];
 }
 @end
