@@ -88,10 +88,6 @@
     //save player name to plist
     [plistDict setObject:_playerName.stringValue forKey:@"PlayerName"];
     [plistDict writeToFile:filePath atomically: YES];
-    //waitting for game thread
-    //    sleep(1);
-    //exit luancher thread
-    //    return exit(0);
 }
 
 +(NSString *)getCP:(NSString *)path{

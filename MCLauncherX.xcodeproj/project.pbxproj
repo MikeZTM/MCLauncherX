@@ -133,10 +133,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9E92BAA2160F0D53003CCEE3 /* Build configuration list for PBXNativeTarget "MCLauncherX" */;
 			buildPhases = (
+				9E2EE6D6169EA1A5009CCFFA /* Build Number */,
 				9E92BA80160F0D53003CCEE3 /* Sources */,
 				9E92BA81160F0D53003CCEE3 /* Frameworks */,
 				9E92BA82160F0D53003CCEE3 /* Resources */,
-				9E2EE6D6169EA1A5009CCFFA /* Build Number */,
 			);
 			buildRules = (
 			);
