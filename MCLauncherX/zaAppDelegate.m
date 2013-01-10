@@ -94,7 +94,6 @@
     //prepare class path
     NSFileManager *filemgr;
     filemgr = [[NSFileManager alloc] init];
-    //    currentpath = [filemgr currentDirectoryPath];
     NSString *currentpath;
     currentpath = [path substringToIndex:[path length]-13];
     NSString *cp=@"";
