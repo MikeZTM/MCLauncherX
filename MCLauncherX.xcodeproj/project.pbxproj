@@ -23,6 +23,7 @@
 		9E1B082E160F36E500AD16AF /* MCLauncherX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MCLauncherX.entitlements; sourceTree = "<group>"; };
 		9E2911B8169D5CE10017EDA7 /* zaDragUpdateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zaDragUpdateView.h; sourceTree = "<group>"; };
 		9E2911B9169D5CE10017EDA7 /* zaDragUpdateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zaDragUpdateView.m; sourceTree = "<group>"; };
+		9E2EE6D5169E8E8A009CCFFA /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		9E50616B169BB93C00271876 /* zaPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zaPreferencesWindowController.h; sourceTree = "<group>"; };
 		9E50616C169BB93C00271876 /* zaPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zaPreferencesWindowController.m; sourceTree = "<group>"; };
 		9E506174169BECF100271876 /* zaMCPathDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zaMCPathDelegate.h; sourceTree = "<group>"; };
@@ -58,6 +59,7 @@
 		9E92BA79160F0D53003CCEE3 = {
 			isa = PBXGroup;
 			children = (
+				9E2EE6D5169E8E8A009CCFFA /* .gitignore */,
 				9E92BA8E160F0D53003CCEE3 /* MCLauncherX */,
 				9E92BA87160F0D53003CCEE3 /* Frameworks */,
 				9E92BA85160F0D53003CCEE3 /* Products */,
