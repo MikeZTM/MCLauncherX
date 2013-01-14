@@ -3,10 +3,13 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[zaAppDelegate openPreferences:]:zaAppDelegate.m">
+         contextName = "-[zaPreferencesWindowController windowClosing:]:zaPreferencesWindowController.m">
+      </ContextState>
+      <ContextState
+         contextName = "+[zaAppDelegate startGame:]:zaAppDelegate.m">
          <PersistentStrings>
             <PersistentString
-               value = "((zaPreferencesWindowController*)[_preferences windowController]).startWindow">
+               value = "[NSProcessInfo processInfo]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -19,7 +22,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[zaPreferencesWindowController windowClosing:]:zaPreferencesWindowController.m">
+         contextName = "-[zaAppDelegate openPreferences:]:zaAppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "((zaPreferencesWindowController*)[_preferences windowController]).startWindow">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>

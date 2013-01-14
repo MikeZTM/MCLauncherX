@@ -153,6 +153,11 @@
 
         [myTask setLaunchPath:@"/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/bin/java"];
         [myTask setArguments:args];
+        NSMutableDictionary* path = [[NSMutableDictionary alloc] init];
+        NSString *homepath;
+        homepath = [[vals objectAtIndex:2] substringToIndex:[[vals objectAtIndex:2] length]-56];
+        [path setObject:homepath forKey:@"HOME"];
+        myTask.environment=path;
         [myTask launch];
         sleep(1);   //wait jvm exit on error.
         if ([myTask terminationStatus]==1) {

@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MCLauncherX/zaAppDelegate.m"
-         timestampString = "379496623.064826"
+         timestampString = "379830949.834134"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "192"
-         endingLineNumber = "192"
+         startingLineNumber = "197"
+         endingLineNumber = "197"
          landmarkName = "-setMemory:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -99,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MCLauncherX/zaAppDelegate.m"
-         timestampString = "379496623.064826"
+         timestampString = "379830949.834134"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "168"
-         endingLineNumber = "168"
+         startingLineNumber = "173"
+         endingLineNumber = "173"
          landmarkName = "+startGame:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -112,11 +112,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MCLauncherX/zaAppDelegate.m"
-         timestampString = "379496623.064826"
+         timestampString = "379830949.834134"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "167"
-         endingLineNumber = "167"
+         startingLineNumber = "172"
+         endingLineNumber = "172"
          landmarkName = "+startGame:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -125,11 +125,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MCLauncherX/zaAppDelegate.m"
-         timestampString = "379496623.064826"
+         timestampString = "379830949.834134"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "188"
-         endingLineNumber = "188"
+         startingLineNumber = "193"
+         endingLineNumber = "193"
          landmarkName = "-setMC:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -151,11 +151,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MCLauncherX/zaAppDelegate.m"
-         timestampString = "379496623.064826"
+         timestampString = "379830949.834134"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "176"
-         endingLineNumber = "176"
+         startingLineNumber = "181"
+         endingLineNumber = "181"
          landmarkName = "-applicationShouldTerminateAfterLastWindowClosed:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -164,11 +164,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MCLauncherX/zaAppDelegate.m"
-         timestampString = "379496623.064826"
+         timestampString = "379830949.834134"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "170"
-         endingLineNumber = "170"
+         startingLineNumber = "175"
+         endingLineNumber = "175"
          landmarkName = "+startGame:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -261,6 +261,32 @@
          startingLineNumber = "28"
          endingLineNumber = "28"
          landmarkName = "-applicationDidFinishLaunching:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "MCLauncherX/zaAppDelegate.m"
+         timestampString = "379830949.834134"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "159"
+         endingLineNumber = "159"
+         landmarkName = "+startGame:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "MCLauncherX/zaAppDelegate.m"
+         timestampString = "379830869.246595"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "160"
+         endingLineNumber = "160"
+         landmarkName = "+startGame:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
