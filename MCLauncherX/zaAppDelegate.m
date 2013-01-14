@@ -129,11 +129,6 @@
         temp=[temp stringByAppendingString:@"\""];
 
 
-        NSString *temp2=[NSString alloc];   //Pswd
-        temp2=@"\"";
-        temp2=[temp2 stringByAppendingString:[vals objectAtIndex:3]];
-        temp2=[temp2 stringByAppendingString:@"\""];
-
         NSTask *myTask = [[NSTask alloc] init];
 
         NSString *cp=[self getCP:[vals objectAtIndex:2]];
@@ -146,9 +141,17 @@
         xmx=[xmx stringByAppendingString:@"m"];
         NSArray *args;
         if([vals objectAtIndex:3]){
-            args = [[NSArray alloc] initWithObjects:xms, xmx, @"-cp", cp, dcp, @"net.minecraft.client.Minecraft", temp, nil];
-        }else{
+            NSArray *session=[self loginSession:vals];
+            NSString *temp2=[NSString alloc];   //Pswd
+            temp2=@"\"";
+            temp2=[temp2 stringByAppendingString:[session objectAtIndex:3]];
+            temp2=[temp2 stringByAppendingString:@"\""];
+            temp=@"\"";
+            temp=[temp stringByAppendingString:[session objectAtIndex:2]];
+            temp=[temp stringByAppendingString:@"\""];
             args = [[NSArray alloc] initWithObjects:xms, xmx, @"-cp", cp, dcp, @"net.minecraft.client.Minecraft", temp, temp2, nil];
+        }else{
+            args = [[NSArray alloc] initWithObjects:xms, xmx, @"-cp", cp, dcp, @"net.minecraft.client.Minecraft", temp, nil];
         }
 
         [myTask setLaunchPath:@"/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/bin/java"];
@@ -159,7 +162,7 @@
         [path setObject:homepath forKey:@"HOME"];
         myTask.environment=path;
         [myTask launch];
-        sleep(1);   //wait jvm exit on error.
+        sleep(2);   //wait jvm exit on error.
         if ([myTask terminationStatus]==1) {
             @throw [[NSException alloc] initWithName:@"Arguments error" reason:@"args err" userInfo:@""];
         }
@@ -221,5 +224,17 @@
 
 - (IBAction)pswdChanged:(id)sender {
     [self setPswd:[[self pswdTextField] stringValue]];
+}
+
++(NSArray *)loginSession:(NSArray*)vals{
+    NSString *urlString=[ NSString stringWithFormat: @"https://login.minecraft.net/?user="];
+    urlString=[urlString stringByAppendingString:[vals objectAtIndex:0]];
+    urlString=[urlString stringByAppendingString:@"&password="];
+    urlString=[urlString stringByAppendingString:[vals objectAtIndex:3]];
+    urlString=[urlString stringByAppendingString:@"&version=14"];
+    NSURL *url = [ NSURL URLWithString: urlString];
+    NSString *session = [NSString stringWithContentsOfURL:url];
+    NSArray *chunks = [session componentsSeparatedByString: @":"];
+    return chunks;
 }
 @end
