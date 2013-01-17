@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E0877C816A79CFF003CA423 /* MCLauncherIXICNS.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 9E0877C716A79CFF003CA423 /* MCLauncherIXICNS.iconset */; };
 		9E50616D169BB93C00271876 /* zaPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E50616C169BB93C00271876 /* zaPreferencesWindowController.m */; };
 		9E506176169BECF100271876 /* zaMCPathDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E506175169BECF100271876 /* zaMCPathDelegate.m */; };
 		9E657B82169D5E0100072DFA /* zaDragUpdateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2911B9169D5CE10017EDA7 /* zaDragUpdateView.m */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E0877C716A79CFF003CA423 /* MCLauncherIXICNS.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = MCLauncherIXICNS.iconset; sourceTree = "<group>"; };
 		9E1B082E160F36E500AD16AF /* MCLauncherX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MCLauncherX.entitlements; sourceTree = "<group>"; };
 		9E2911B8169D5CE10017EDA7 /* zaDragUpdateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zaDragUpdateView.h; sourceTree = "<group>"; };
 		9E2911B9169D5CE10017EDA7 /* zaDragUpdateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zaDragUpdateView.m; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		9E92BA8F160F0D53003CCEE3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9E0877C716A79CFF003CA423 /* MCLauncherIXICNS.iconset */,
 				9E92BA90160F0D53003CCEE3 /* MCLauncherX-Info.plist */,
 				9E92BA91160F0D53003CCEE3 /* InfoPlist.strings */,
 				9E92BA94160F0D53003CCEE3 /* main.m */,
@@ -183,6 +186,7 @@
 				9E92BA99160F0D53003CCEE3 /* Credits.rtf in Resources */,
 				9E92BA9F160F0D53003CCEE3 /* MainMenu.xib in Resources */,
 				9E92C0FB160F16E3003CCEE3 /* favicon.icns in Resources */,
+				9E0877C816A79CFF003CA423 /* MCLauncherIXICNS.iconset in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
