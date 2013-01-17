@@ -17,7 +17,6 @@
 		9E92BA99160F0D53003CCEE3 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9E92BA97160F0D53003CCEE3 /* Credits.rtf */; };
 		9E92BA9C160F0D53003CCEE3 /* zaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92BA9B160F0D53003CCEE3 /* zaAppDelegate.m */; };
 		9E92BA9F160F0D53003CCEE3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E92BA9D160F0D53003CCEE3 /* MainMenu.xib */; };
-		9E92C0FB160F16E3003CCEE3 /* favicon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 9E92C0FA160F16E3003CCEE3 /* favicon.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +42,6 @@
 		9E92BA98160F0D53003CCEE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		9E92BA9B160F0D53003CCEE3 /* zaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zaAppDelegate.m; sourceTree = "<group>"; };
 		9E92BA9E160F0D53003CCEE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		9E92C0FA160F16E3003CCEE3 /* favicon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = favicon.icns; path = ../favicon.icns; sourceTree = "<group>"; };
 		9E92C0FC160F1729003CCEE3 /* zaAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zaAppDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,7 +100,6 @@
 				9E2911B8169D5CE10017EDA7 /* zaDragUpdateView.h */,
 				9E2911B9169D5CE10017EDA7 /* zaDragUpdateView.m */,
 				9E1B082E160F36E500AD16AF /* MCLauncherX.entitlements */,
-				9E92C0FA160F16E3003CCEE3 /* favicon.icns */,
 				9E92C0FC160F1729003CCEE3 /* zaAppDelegate.h */,
 				9E92BA9B160F0D53003CCEE3 /* zaAppDelegate.m */,
 				9E50616B169BB93C00271876 /* zaPreferencesWindowController.h */,
@@ -185,7 +182,6 @@
 				9E92BA93160F0D53003CCEE3 /* InfoPlist.strings in Resources */,
 				9E92BA99160F0D53003CCEE3 /* Credits.rtf in Resources */,
 				9E92BA9F160F0D53003CCEE3 /* MainMenu.xib in Resources */,
-				9E92C0FB160F16E3003CCEE3 /* favicon.icns in Resources */,
 				9E0877C816A79CFF003CA423 /* MCLauncherIXICNS.iconset in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
